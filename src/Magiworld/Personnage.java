@@ -16,8 +16,7 @@ public class Personnage {//variables
 
     public Personnage() {//constructeur par défaut
         numeroJoueur = 0;
-        classe = 0;
-        niveau = 0;
+         niveau = 0;
         vie = 0;
         force = 0;
         agilite = 0;
@@ -47,7 +46,7 @@ public class Personnage {//variables
     public int getForce(){return force;}
     public int getAgilite(){return agilite;}
     public int getIntelligence(){return intelligence;}
-    public final int getVieDebut(){return vieDebut;}//déclaration des points de vie du début en constante
+    public int getVieDebut(){return vieDebut;}//déclaration des points de vie du début en constante
 
     public void setNumeroJoueur(int pnumeroJoueur) {
         numeroJoueur = pnumeroJoueur;
