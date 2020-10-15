@@ -1,2 +1,6 @@
-package Magiworld;public interface CriDeGuerre {
+package Magiworld;
+
+public interface CriDeGuerre {
+
+    String criDeGuerre();
 }

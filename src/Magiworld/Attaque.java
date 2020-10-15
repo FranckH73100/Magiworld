@@ -1,6 +1,7 @@
 package Magiworld;
 
-public interface AttaqueBasique {
+public interface Attaque {
 
     void attaqueBasique(Personnage defenseur);
+    void attaqueSpeciale(Personnage defenseur);
 }

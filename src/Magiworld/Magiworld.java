@@ -1,15 +1,12 @@
 package Magiworld;
 
-import Magiworld.Guerrier;
-import Magiworld.Rodeur;
-import Magiworld.Mage;
 
 public class Magiworld {
 
     public static void main(String[] args) {
 
-        Personnage p1 = CreerPerso.creerPerso(1);
-        Personnage p2 = CreerPerso.creerPerso(2);
+        Personnage p1 = Personnage.creerPerso(1);
+        Personnage p2 = Personnage.creerPerso(2);
 
         do {
             Combat.start(p1, p2);//
