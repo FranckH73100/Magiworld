@@ -87,7 +87,6 @@ public abstract class Personnage implements Attaque, CriDeGuerre {//variables
     public static Personnage creerPerso(int numeroJoueur) {//création du personnage et de ses caractéristiques
         Personnage result;
         Scanner sc = new Scanner(System.in);//pour la récupération des données saisies par l'utilisateur
-        boolean ok = false;
         int classe = 0;
         do {//pour lancer la boucle du choix de classe
             System.out.println("Création du personnage du joueur " + numeroJoueur + "\nVeuillez saisir la classe de votre personnage (1 : Guerrier, 2 : Rôdeur, 3 : Mage)");
@@ -116,60 +115,44 @@ public abstract class Personnage implements Attaque, CriDeGuerre {//variables
                 throw new IllegalStateException("Unexpected value: " + classe);
         }
         result.setNumeroJoueur(numeroJoueur);
-        //do {
+
         do {//boucle du niveau
             System.out.println("Niveau du personnage ? (entre 1 et 100)");
             try {
                 result.setNiveau(sc.nextInt());
-                ok = true;
             } catch (InputMismatchException e) {
                 System.out.println(result.toString());
-                ok = false;
                 sc.nextLine();
             }
         } while (result.getNiveau() < 1 || result.getNiveau() > 100);//fin boucle choix du niveau
-
-        //} while (!ok);
         do {//boucle de verification que la répartition des points de force + d'agilité + intelligence = niveau
-            //do {
             do {
                 System.out.println("Force du personnage ?(entre 0 et 100)");//boucle du niveau
                 try {
                     result.setForce(sc.nextInt());
-                    ok = true;
                 } catch (InputMismatchException e) {
                     System.out.println(result.toString());
-                    ok = false;
                     sc.nextLine();
                 }
             } while (result.getForce() < 0 || result.getForce() > 100);//fin boucle choix du niveau
-            //} while (!ok);
             do {
-                do {
-                    System.out.println("Agilité du personnage ?(entre 0 et 100)");//boucle du niveau
-                    try {
-                        result.setAgilite(sc.nextInt());
-                        ok = true;
-                    } catch (InputMismatchException e) {
-                        System.out.println(result.toString());
-                        ok = false;
-                        sc.nextLine();
-                    }
-                } while (result.getAgilite() < 0 || result.getAgilite() > 100);//fin boucle choix du niveau
-            } while (!ok);
+                System.out.println("Agilité du personnage ?(entre 0 et 100)");//boucle du niveau
+                try {
+                    result.setAgilite(sc.nextInt());
+                } catch (InputMismatchException e) {
+                    System.out.println(result.toString());
+                    sc.nextLine();
+                }
+            } while (result.getAgilite() < 0 || result.getAgilite() > 100);//fin boucle choix du niveau
             do {
-                do {
-                    System.out.println("Intelligence du personnage ?(entre 0 et 100)");//boucle du niveau
-                    try {
-                        result.setIntelligence(sc.nextInt());
-                        ok = true;
-                    } catch (InputMismatchException e) {
-                        System.out.println(result.toString());
-                        ok = false;
-                        sc.nextLine();
-                    }
-                } while (result.getIntelligence() < 0 || result.getIntelligence() > 100);//fin boucle choix du niveau
-            } while (!ok);
+                System.out.println("Intelligence du personnage ?(entre 0 et 100)");//boucle du niveau
+                try {
+                    result.setIntelligence(sc.nextInt());
+                } catch (InputMismatchException e) {
+                    System.out.println(result.toString());
+                    sc.nextLine();
+                }
+            } while (result.getIntelligence() < 0 || result.getIntelligence() > 100);//fin boucle choix du niveau
             if ((result.getForce() + result.getAgilite() + result.getIntelligence()) != result.getNiveau()) {//vérification de la répartition des points
                 System.out.println("La somme de la force, de l'agilité et de l'intelligence doit être égale au niveau.");
             }
